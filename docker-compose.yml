@@ -1,0 +1,16 @@
+version: "3.3"  
+
+services:
+    worker:
+        build:
+            context: ./worker
+            dockerfile: DockerFile
+        image: docker_worker
+        network_mode: host
+        
+    planner:
+        build:
+            context: ./planner
+            dockerfile: DockerFile
+        image: docker_planner
+        network_mode: host
