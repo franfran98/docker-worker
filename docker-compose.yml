@@ -10,12 +10,16 @@ services:
             - "8080:8080"
         environment:
             - PORT=8080
+            - MULT=false
+            - ADD=true
         #network_mode: host
         
     planner:
         build:
             context: ./planner
             dockerfile: DockerFile
+        environment:
+            - TASKS=5
         image: planner
         network_mode: host
 
@@ -28,4 +32,6 @@ services:
             - "8081:8081"
         environment:
             - PORT=8081
+            - MULT=false
+            - ADD=true
         #network_mode: host
