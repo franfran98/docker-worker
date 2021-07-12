@@ -5,12 +5,27 @@ services:
         build:
             context: ./worker
             dockerfile: DockerFile
-        image: docker_worker
-        network_mode: host
+        image: worker1
+        ports:
+            - "8080:8080"
+        environment:
+            - PORT=8080
+        #network_mode: host
         
     planner:
         build:
             context: ./planner
             dockerfile: DockerFile
-        image: docker_planner
+        image: planner
         network_mode: host
+
+    worker2:
+        build:
+            context: ./worker
+            dockerfile: DockerFile
+        image: worker2
+        ports:
+            - "8081:8081"
+        environment:
+            - PORT=8081
+        #network_mode: host
